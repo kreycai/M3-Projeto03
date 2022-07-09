@@ -2,7 +2,7 @@ import dotenv from "dotenv/config";
 import jwt from "jsonwebtoken";
 import { findByIdUserService } from "../users/users.service.js";
 
-const fun = (req, res, next) => {
+module.exports = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
@@ -33,5 +33,3 @@ const fun = (req, res, next) => {
     return next();
   });
 };
-
-export { fun };

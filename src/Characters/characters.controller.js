@@ -56,11 +56,6 @@ const updateCharController = async (req, res) => {
   const idParam = req.params.id;
   const editChar = req.body;
 
-  const foundCharName = await charService.findByNameCharService(editChar.name);
-  if (foundCharName) {
-    return res.status(400).send({ message: "Nome de personagem já existe!" });
-  }
-
   const updatedChar = await charService.updateCharService(idParam, editChar);
   res.send(updatedChar);
 };
